@@ -2,6 +2,9 @@
 
 {%block content%}
 <div class="col-md-6 offset-md-3">
+    {% if user.is_authenticated %}
+    <h1>hello world</h1>
+    {% else %}
 
     
     <h1>lOGIN</h1>
@@ -9,16 +12,18 @@
         {% csrf_token %}
         <form>
             <div class="mb-3">
-              <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+              <input type="text" class="form-control" name="username" placeholder="Username" required>
           
             </div>
             <br/>
             <div class="mb-3">
-              <input type="password" class="form-control" name="'password" placeholder="password" required>
+              <input type="password" class="form-control" name="password" placeholder="password" required>
             </div>
            <br/>
             <button type="submit" class="btn btn-secondary">Login</button>
           </form>
     </form>
 </div>
+
+{% endif %}
 {%endblock%}
